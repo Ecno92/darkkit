@@ -72,12 +72,15 @@ end
 local SCALING_FALLBACK = {"fill", "fit", "auto", "none"}
 
 -- Replace all entries in a combobox with new values and select default_idx.
+-- Grows forward first then trims the tail so the combobox always has at least
+-- one item during the update (darktable rejects out-of-range index writes).
 local function update_combo(combo, values, default_idx)
-    for i = #combo, 1, -1 do
-        combo[i] = nil
-    end
+    local old_count = #combo
     for i, v in ipairs(values) do
         combo[i] = v
+    end
+    for i = old_count, #values + 1, -1 do
+        combo[i] = nil
     end
     combo.selected = math.max(1, math.min(default_idx, #values))
 end
