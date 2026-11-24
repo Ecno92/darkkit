@@ -8,6 +8,7 @@ Personal kit of Lua scripts for [darktable](https://www.darktable.org/).
 
 - **print_image** — Print images directly via CUPS. Lets you pick printer, paper size, and scaling from within darktable's export panel. Optimised for the Canon Selphy CP1500.
 - **select_broken_links** — Checks every image in the current collection and selects those whose source file no longer exists on disk. Adds a "select broken links" button to the lighttable's selection module and an assignable shortcut.
+- **select_double_imports** — Selects unedited images that were imported more than once. With images selected, only their double imports are considered.
 
 ## Prerequisites
 
